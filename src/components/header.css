@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 .header {
+  padding: 1rem;
   background-color: #192a56;
-  color: aliceblue;
+  color: #f0f8ff;
 }

@@ -2,24 +2,15 @@ import React, { useState } from "react";
 import "./home.css";
 
 const Home = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [data, setData] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+
+  const [form, setForm] = useState({});
+  const [data, setData] = useState([]);
 
   const addData = () => {
-    setData([
-      ...data,
-      {
-        // name: name,
-        // email: email,
-
-        // or
-        name,
-        email,
-      },
-    ]);
-    setName("");
-    setEmail("");
+    setData([...data, form]);
+    setForm({ form });
   };
 
   const removeItem = (index) => {
@@ -32,15 +23,15 @@ const Home = () => {
     <div className="home">
       <div className="home-cont">
         <input
-          value={name}
-          onChange={(event) => setName(event.target.value)}
+          value={form.name}
+          onChange={(event) => setForm({ ...form, name: event.target.value })}
           type="text"
           placeholder="Name"
         />
 
         <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          value={form.email}
+          onChange={(event) => setForm({ ...form, email: event.target.value })}
           type="text"
           placeholder="Email"
         />
@@ -56,7 +47,7 @@ const Home = () => {
       {Array.isArray(data)
         ? data.map((element, index) => {
             return (
-              <div key={index} className="detail_cont">
+              <div className="detail_cont">
                 <h4>{element.name}</h4>
                 <h4>{element.email}</h4>
                 <button onClick={() => removeItem(index)}>Delete</button>
