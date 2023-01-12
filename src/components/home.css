@@ -1,0 +1,33 @@
+.home {
+  background-color: #dff9fb;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.home-cont {
+  padding: 2rem;
+  width: 70%;
+  display: flex;
+  /* background-color: aqua; */
+  justify-content: space-around;
+}
+
+.home-cont input {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.home-cont button {
+  border: none;
+  border-radius: 0.5rem;
+  width: 7rem;
+  padding: 0.5rem;
+  background-color: #3434e9;
+  font-size: large;
+  color: #dff9fb;
+  font-weight: 500;
+  cursor: pointer;
+}
