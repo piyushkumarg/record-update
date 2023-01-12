@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./home.css";
-import Details from "./Details";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -21,6 +20,12 @@ const Home = () => {
     ]);
     setName("");
     setEmail("");
+  };
+
+  const removeItem = (index) => {
+    let arr = data;
+    arr.splice(index, 1);
+    setData([...arr]);
   };
 
   return (
@@ -51,11 +56,11 @@ const Home = () => {
       {Array.isArray(data)
         ? data.map((element, index) => {
             return (
-              <Details
-                name={element.name}
-                email={element.email}
-                index={index}
-              />
+              <div key={index} className="detail_cont">
+                <h4>{element.name}</h4>
+                <h4>{element.email}</h4>
+                <button onClick={() => removeItem(index)}>Delete</button>
+              </div>
             );
           })
         : null}
